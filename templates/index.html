@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block headline %}
+{{title}}
+{% endblock %}
+
+{% block content%}
+
+<p class="text-center display-4">{{message}}</p>
+{% if flg == None %}
+<div class="alert alert-light" role="alert">
+{% elif flg %}
+<div class="alert alert-primary" role="alert">
+{% else %}
+<div class="alert alert-info" role="alert">
+{% endif %}
+   {{alert}}
+   <button type="button" class="close" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+   </button>
+</div>
+
+
+<p class="text-left display-4">{{note}}</p>
+
+
+<!-- Blog -->
+<div class="row mb-2">
+    <div class="col-md-5">
+        <div class="cardadd row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col d-flex flex-column position-static m-3">
+                <h3 class="mb-0">Scan VIN</h3>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a href="/vin_search/" class="icon-link gap-1 icon-link-hover stretched-link">
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="200" height="200" src="{{url_for('static', path='/vinscan.png')}}" class="card-img-top" alt="...">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-5">
+        <div class="cardadd row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col d-flex flex-column position-static m-3">
+                <h3 class="mb-0">Repair - !</h3>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="200" height="200" src="{{url_for('static', path='/repair.png')}}" class="card-img-top" alt="...">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-5">
+        <div class="cardadd row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col d-flex flex-column position-static m-3">
+                <h3 class="mb-0">Report</h3>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a href="/report" class="icon-link gap-1 icon-link-hover stretched-link">
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="200" height="200" src="{{url_for('static', path='/qualityReport.png')}}" class="card-img-top" alt="...">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-5">
+        <div class="cardadd row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col d-flex flex-column position-static m-3">
+                <h3 class="mb-0">Photo</h3>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a href="/camera" class="icon-link gap-1 icon-link-hover stretched-link">
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="200" height="200" src="{{url_for('static', path='/photo.png')}}" class="card-img-top" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+

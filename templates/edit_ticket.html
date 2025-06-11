@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+
+{% block headline %}
+{{title}}
+{% endblock %}
+
+{% block content%}
+
+<p class="text-center display-4">{{ message }}</p>
+<div class="container mt-5">
+    <form class="row gx-3 gy-2 align-items-center mt-4" method="POST">
+
+          <div class="col-sm-6">
+            <label class="visually-hidden" for="vin">vin</label>
+            <div class="input-group">
+              <div class="input-group-text">vin</div>
+              <input type="text" class="form-control" id="vin" name="vin" value="{{ vin }}"  disabled>
+            </div>
+          </div>
+
+        {% for item in items %}
+
+          <div class="col-sm-6">
+            <label class="visually-hidden" for="{{ item[0] }}">{{ field }}</label>
+            <div class="input-group">
+              <div class="input-group-text">{{ item[0] }}</div>
+              <input type="text" class="form-control" id="{{ item[0] }}" name="{{ item[0] }}" value="{{ item[1] }}">
+            </div>
+          </div>
+
+
+        {% endfor %}
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    {% if updated %}
+<form method="get" class="row gx-3 gy-2 align-items-center mt-4" action="/back_to_vin_search/">
+  <input type="text" class="visually-hidden" name="vin"  value="{{ vin }}">
+  <input type="submit" class="btn btn-success" value="back to vin search">
+</form>
+    {% endif %}
+
+<hr class="border border-primary border-1 opacity-50 mt-4">
+<h2 class="display-6">parts</h2>
+
+<!-- Paers creation -->
+<form class="row gx-3 gy-2 align-items-center mt-5" action="/parts/new_parts" method="POST">
+    <div><input type="text" class="form-control visually-hidden" name="id" value="{{ id }}"></div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">add</button>
+    </div>
+
+</form>
+<table class="table table-striped table-hover mt-4">
+    <thread>
+        <tr>
+            {% for field in parts_fields %}
+            <th scope="col">{{ field[0] }}</th>
+            {% endfor %}
+            <th scope="col">btn</th>
+        </tr>
+    </thread>
+    <tbody>
+        {% for parts in parts_list %}
+        <tr>
+            {% for field in parts_fields %}
+            <td>{{ parts[field[0]] }}</td>
+            {% endfor %}
+            <td>
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="/parts/edit/{{parts['id']}}">edit</a></li>
+                <li><a class="dropdown-item" href="/parts/delete/{{parts['id']}}">delete</a></li>
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Login</h1>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+        <form method="post" action="/login">
+            <label class="form-label" for="username">Username:</label>
+            <input class="form-control" type="text" id="username" name="username" required>
+            <label class="form-label" for="password">Password:</label>
+            <input class="form-control" type="password" id="password" name="password" required>
+            <button class="btn btn-primary mt-2" type="submit">Log in</button>
+        </form>
+    </div>
+    <div class="col">
+      <p>Please log-in</p>
+      <img class="bd-placeholder-img" src="{{url_for('static', path='/logo4.jpg')}}" class="card-img-top" alt="...">
+    </div>
+  </div>
+</div>
+
+<br />
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+
+{% if success %}
+<p>{{ success }}</p>
+<a href="../protected" class="">
+test_protected_page
+</a>
+<br />
+<a href="../logout" class="">
+logout
+</a>
+{% endif %}
+
+
+{% endblock %}

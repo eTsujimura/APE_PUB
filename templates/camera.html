@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+
+{% block headline %}
+{{title}}
+{% endblock %}
+
+{% block content%}
+
+<p class="text-center display-4">{{message}}</p>
+
+<h1>Upload Photo from Camera</h1>
+<video id="video" width="640" height="480" autoplay></video>
+<button id="snap">Snap Photo</button>
+<canvas id="canvas" width="640" height="480"></canvas>
+<form id="uploadForm" action="/upload-photo/" enctype="multipart/form-data" method="post">
+    <input type="file" id="fileInput" name="file" style="display:none;">
+    <input type="submit" value="Upload Photo">
+</form>
+    <script src="{{url_for('static', path='/camera.js')}}"></script>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+
+{% block headline %}
+{{ title }}
+{% endblock %}
+
+{% block content%}
+
+<p class="text-center display-4">{{ message }}</p>
+<div class="container mt-5">
+    <form class="row gx-3 gy-2 align-items-center mt-4" method="POST">
+
+          <div class="col-sm-6">
+            <label class="visually-hidden" for="id">id</label>
+            <div class="input-group">
+              <div class="input-group-text">id</div>
+              <input type="text" class="form-control" id="id" name="id" value="{{ id }}"  disabled>
+            </div>
+          </div>
+
+        {% for item in items %}
+
+          <div class="col-sm-6">
+            <label class="visually-hidden" for="{{ item[0] }}">{{ field }}</label>
+            <div class="input-group">
+              <div class="input-group-text">{{ item[0] }}</div>
+              <input type="text" class="form-control" id="{{ item[0] }}" name="{{ item[0] }}" value="{{ item[1] }}">
+            </div>
+          </div>
+
+
+        {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    {% if updated %}
+    <div class="row gx-3 gy-2 align-items-center mt-4">
+        <a class="btn btn-success" href="javascript:history.back()">Go Back</a>
+    <div>
+    {% endif %}
+</div>
+
+{% endblock %}
