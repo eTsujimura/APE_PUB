@@ -9,8 +9,9 @@
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
 
+
 from fastapi import FastAPI, Response, Request, Depends, HTTPException, Query, Form, UploadFile, status, APIRouter, File
-from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -19,9 +20,11 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import jwt
 from jwt.exceptions import InvalidTokenError
 from passlib.context import CryptContext
+from jwt import JWTError
 
 # middleware for user auth
 from starlette.middleware.base import BaseHTTPMiddleware
+
 
 
 # datetime for user auth, etc
@@ -51,8 +54,6 @@ from io import StringIO, BytesIO
 # for report
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4, portrait
-
-
 
 
 ################################################################################
