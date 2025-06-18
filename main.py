@@ -20,7 +20,7 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import jwt
 from jwt.exceptions import InvalidTokenError
 from passlib.context import CryptContext
-from jwt import JWTError
+from jwt import PyJWTError
 
 # middleware for user auth
 from starlette.middleware.base import BaseHTTPMiddleware
@@ -129,7 +129,7 @@ async def get_user(request: Request):
         if username is None:
             raise HTTPException(status_code=401, detail="Not authenticated_2")
 
-    except JWTError:
+    except PyJWTError:
         raise HTTPException(status_code=401, detail="Not authenticated_3")
 
     user = username  # only for testing, need get func
@@ -172,7 +172,7 @@ class AuthMiddleware(BaseHTTPMiddleware):
             if username is None:
                 return response
 
-        except JWTError:
+        except PyJWTError:
             return response
 
         session = Session(engine)
