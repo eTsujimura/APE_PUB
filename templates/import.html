@@ -23,18 +23,7 @@
   <p>Vehicle</p>
 
 
-<div class="card p-3 m-3">
-        <figure class="p-3 mb-0">
-          <blockquote class="blockquote">
-            <p>Drag and Drop test.</p>
-          </blockquote>
-            <div id="wrapper">
-              <div id="fileDropBox">Drop files here.</div>
-              <p id="message"></p>
-            </div>
-        </figure>
-      </div>
-
+<!-- File upload test | upload_csv_2 -->
 <div class="card p-3 m-3">
     <figure class="p-3 mb-0">
         <blockquote class="blockquote">
@@ -49,7 +38,32 @@
         </div>
     </figure>
 </div>
+  </div>
 
+    <div class="tab-pane fade" id="nav-ticket" role="tabpanel" aria-labelledby="nav-ticket-tab">
+  <!--  Ticket   -->
+  <p>Ticket</p>
+
+  <!-- Drag and Drop test | upload_csv_1-->
+  <div class="card p-3 m-3">
+        <figure class="p-3 mb-0">
+          <blockquote class="blockquote">
+            <p>Drag and Drop test.</p>
+          </blockquote>
+            <div id="wrapper">
+              <div id="fileDropBox">Drop files here.</div>
+              <p id="message"></p>
+            </div>
+        </figure>
+      </div>
+
+
+  </div>
+
+  <div class="tab-pane fade" id="nav-parts" role="tabpanel" aria-labelledby="nav-parts-tab">
+  <!--  parts   -->
+  <p>Parts</p>
+<!-- No backend processing, just client-side reading -->
 <div class="card p-3 m-3">
     <figure class="p-3 mb-0">
         <blockquote class="blockquote">
@@ -64,6 +78,7 @@
     </figure>
 </div>
 
+<!-- File upload test | upload_any_file -->
 <div class="card p-3 m-3">
     <figure class="p-3 mb-0">
         <blockquote class="blockquote">
@@ -80,24 +95,6 @@
 </div>
 
 
-
-
-
-  </div>
-
-    <div class="tab-pane fade" id="nav-ticket" role="tabpanel" aria-labelledby="nav-ticket-tab">
-  <!--  Ticket   -->
-  <p>Ticket</p>
-
-
-  </div>
-
-  <div class="tab-pane fade" id="nav-parts" role="tabpanel" aria-labelledby="nav-parts-tab">
-  <!--  parts   -->
-  <p>Parts</p>
-
-
-
   </div>
 </div>
 
@@ -105,6 +102,7 @@
 
 
   <script>
+    // Drag and Drop functionality
     const dropArea = document.getElementById('fileDropBox');
     const message = document.getElementById('message');
 
@@ -145,6 +143,8 @@
 
 
 <script type="text/javascript">
+  // Function to read CSV file and generate a table
+  // No backend processing, just client-side reading
 function generateTable() {
   var fileInput = document.getElementById('csvFile');
   var file = fileInput.files[0];
